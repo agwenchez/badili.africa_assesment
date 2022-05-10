@@ -27,8 +27,7 @@
     display: flex;
     border-right: .5px solid gray;
     flex-direction: column;
-    /* height: ; */
-    /* padding-right: -10000px; */
+    border-right: .25px solid lightgray;
 }
 .filter-item{
     display: flex;
@@ -105,3 +104,10 @@
     border-radius: 5px;
 }
 
+.rating{
+    margin-top: 20px;
+}
+
+.rating p{
+    font-weight: bold;
+}

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from '../header/Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const main = () => {
+    const [rating, setRating] = useState(true)
     return (
         <div>
             <Header />
@@ -55,8 +56,12 @@ const main = () => {
 
                     </div>
 
-                    <div>
-                        
+                    <div className='rating'>
+                        <p>Rating</p>
+
+                        <div className='stars'>
+                            <input type="checkbox" />
+                        </div>
                     </div>
                 </div>
                 <div className='center'>
