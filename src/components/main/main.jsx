@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Header from '../header/Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-const main = () => {
-    const [rating, setRating] = useState(true)
+
+const Main = () => {
+
     return (
         <div>
             <Header />
@@ -57,15 +63,53 @@ const main = () => {
                     </div>
 
                     <div className='rating'>
-                        <p>Rating</p>
+                        <h3>Rating</h3>
 
                         <div className='stars'>
-                            <input type="checkbox" />
+                            <CheckBoxIcon style={{color:'#47a259', marginRight:'5px'}} />
+                            <StarIcon style={{color:"gold"}}/>
+                            <StarIcon style={{color:"gold"}}/>
+                            <StarIcon style={{color:"gold"}}/>
+                            <StarIcon style={{color:"gold"}}/>
+                            <StarBorderIcon style={{color:"gold"}}/>
+                            <p>above</p>
                         </div>
                     </div>
+
+                    <div className='footer-banner'>
+                        <h3>GET 30% OFF</h3>
+                        <p>Share your referral<br/>and get discount</p>
+                        <button>Share</button>
+                    </div>
+                    
                 </div>
                 <div className='center'>
-                    <p>div 2</p>
+                    <div className='search'>
+                        <SearchIcon/>
+                        <p>Monstera</p>
+                        <CloseIcon className='close-icon'/>
+                    </div>
+
+                    <div className='search-results'>
+                        <p>Search results for <span>"Monstera"</span></p>
+                    </div>
+               
+                    <div className='sort'>
+                        <p>Sort</p>
+                        <div className='active'>
+                            <p>Relevance</p>
+                        </div>
+                        <div className='sort-pill'>
+                            <p>Popular</p>
+                        </div>
+                        <div className='sort-pill'>
+                            <p>Most new</p>
+                        </div>
+                        <div className='sort-pill'>
+                            <p>Price</p>
+                            <ExpandMoreIcon />
+                        </div>
+                    </div>
                 </div>
                 <div className='right'>
                     <p>div3</p>
@@ -75,4 +119,4 @@ const main = () => {
     )
 }
 
-export default main
+export default Main

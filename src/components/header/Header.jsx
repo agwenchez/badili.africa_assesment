@@ -6,6 +6,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Header = () => {
+
   return (
     <div className='container'>
         <div>
@@ -14,6 +15,7 @@ const Header = () => {
 
         <div className='nav-menu'>
             <p>Shop</p>
+            {/* <div className='underline'>123</div> */}
             <p>Plant Care</p>
             <p>Workshops</p>
             <p>Blogs</p>
@@ -23,6 +25,7 @@ const Header = () => {
         <div className='icons-right'>
             <div className='cart'>
                 <ShoppingBagOutlinedIcon />
+                <p>5</p>
             </div>
             <FavoriteBorderIcon/>
             <img src="https://image.shutterstock.com/image-photo/indoor-portrait-beautiful-brunette-young-260nw-640005220.jpg" alt="" />
