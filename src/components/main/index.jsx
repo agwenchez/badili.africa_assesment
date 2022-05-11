@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../Header/Header'
+import Header from '../Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchIcon from '@mui/icons-material/Search';
@@ -8,7 +8,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import Rating from '@mui/material/Rating';
 import { products } from '../../mock_data/products';
 import { thumbnails } from '../../mock_data/thumbnails';
-import Product from '../Product/Product'
+import Product from '../Product'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import PetsIcon from '@mui/icons-material/Pets';
