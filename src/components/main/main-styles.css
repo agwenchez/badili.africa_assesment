@@ -3,10 +3,8 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    height: 100%;
     /* border:1px solid black; */
-}
-.filter{
-    font-weight: bold;
 }
 
 
@@ -115,13 +113,21 @@
     justify-content: center;
 }
 .sidebar-filter{
-    margin-left: 60px;
+    /* margin-left: 60px; */
+    display: flex;
+    align-items: center;
     width: 29%;
     display: flex;
-    border-right: .5px solid gray;
+    height: 100%;
     flex-direction: column;
     border-right: .25px solid lightgray;
 }
+
+.filter{
+    margin-left: -100px;
+    font-weight: bold;
+}
+
 .filter-item{
     display: flex;
     flex-direction: row;
@@ -131,6 +137,14 @@
     cursor: pointer;
 }
 
+
+.categories-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: -40px;
+}
 .categories{
     font-weight: bold;
     margin-top: 20px;

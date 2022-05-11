@@ -8,7 +8,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import Rating from '@mui/material/Rating';
 import { products } from '../../mock_data/products';
 
-import Product from '../Product/'
+import Product from '../Product/Product'
 
 
 const Main = () => {
@@ -22,34 +22,37 @@ const Main = () => {
             <div className='body'>
                 <div className='sidebar-filter'>
                     <p className='filter'>Filter</p>
-                    <p className='categories'>Categories</p>
 
-                    <div className='filter-item'>
-                        <input type='checkbox' />
-                        <p>Gardening</p>
-                    </div>
-                    <div className='filter-item'>
-                        <CheckBoxIcon className='checkbox' />
-                        <p>Plants</p>
-                    </div>
-                    <div className='filter-item'>
-                        <input type='checkbox' />
-                        <p>Seeds</p>
-                    </div>
-                    <div className='filter-item'>
-                        <input type='checkbox' />
-                        <p>Bulbs</p>
-                    </div>
-                    <div className='filter-item'>
-                        <input type='checkbox' />
-                        <p>Planters</p>
-                    </div>
+                    <div className='categories-container'>
+                        <p className='categories'>Categories</p>
 
-                    <div className='others'>
-                        <p>Others</p>
-                        <ExpandMoreIcon />
-                    </div>
+                        <div className='filter-item'>
+                            <input type='checkbox' />
+                            <p>Gardening</p>
+                        </div>
+                        <div className='filter-item'>
+                            <CheckBoxIcon style={{ fontSize: '20px' }} className='checkbox' />
+                            <p>Plants</p>
+                        </div>
+                        <div className='filter-item'>
+                            <input type='checkbox' />
+                            <p>Seeds</p>
+                        </div>
+                        <div className='filter-item'>
+                            <input type='checkbox' />
+                            <p>Bulbs</p>
+                        </div>
+                        <div className='filter-item'>
+                            <input type='checkbox' />
+                            <p>Planters</p>
+                        </div>
 
+                        <div className='others'>
+                            <p>Others</p>
+                            <ExpandMoreIcon />
+                        </div>
+
+                    </div>
                     <div className='price-range'>
                         <p className='price-range-title'>Price Range</p>
                         <div className='top-div'>
@@ -78,22 +81,22 @@ const Main = () => {
 
                     <div className='footer-banner'>
                         <h3>GET 30% OFF</h3>
-                        <p>Share your referral<br/>and get discount</p>
+                        <p>Share your referral<br />and get discount</p>
                         <button>Share</button>
                     </div>
-                    
+
                 </div>
                 <div className='center'>
                     <div className='search'>
-                        <SearchIcon className='search-icon'/>
-                        <input type="text"  value={search} onChange={e => setSearch(e.target.value)}/>
-                        <CloseIcon className='close-icon'/>
+                        <SearchIcon className='search-icon' />
+                        <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
+                        <CloseIcon className='close-icon' />
                     </div>
 
                     <div className='search-results'>
                         <p>Search results for <span>"{search}"</span></p>
                     </div>
-               
+
                     <div className='sort'>
                         <p>Sort</p>
                         <div className='active'>
@@ -112,8 +115,8 @@ const Main = () => {
                     </div>
 
                     <div className='products'>
-                        {products.map((product,index) => (
-                            <Product/>
+                        {products.map((product, index) => (
+                            <Product product={product} key={index} />
                         ))}
                     </div>
                 </div>
