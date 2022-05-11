@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../header/Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -7,13 +7,34 @@ import CloseIcon from '@mui/icons-material/Close';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import Rating from '@mui/material/Rating';
 import { products } from '../../mock_data/products';
-
+import { thumbnails } from '../../mock_data/thumbnails';
 import Product from '../Product/Product'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import StraightenIcon from '@mui/icons-material/Straighten';
+import PetsIcon from '@mui/icons-material/Pets';
+import Fuse from 'fuse.js';
 
 
 const Main = () => {
 
-    const [search, setSearch] = React.useState('')
+    const [readMore, setReadMore] =  useState(false)
+    const [query, setQuery] = useState('')
+
+    const fuse = new Fuse(products, {
+        keys:[
+            'plantName'
+        ],
+        includeScore:true
+    })
+
+    const results = fuse.search(query)
+    const productResults = query ? results.map(result=>result.item) : products
+    console.log("Results", productResults)
+
+    const handleSearch = (e) =>{
+        const value = e.target.value
+        setQuery(value)
+    }
 
     return (
         <div>
@@ -89,12 +110,12 @@ const Main = () => {
                 <div className='center'>
                     <div className='search'>
                         <SearchIcon className='search-icon' />
-                        <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
-                        <CloseIcon className='close-icon' />
+                        <input type="text" value={query} onChange={handleSearch} />
+                        <CloseIcon className='close-icon' onClick={()=>setQuery('')} />
                     </div>
 
                     <div className='search-results'>
-                        <p>Search results for <span>"{search}"</span></p>
+                        <p>Search results for <span>"{query}"</span></p>
                     </div>
 
                     <div className='sort'>
@@ -115,13 +136,56 @@ const Main = () => {
                     </div>
 
                     <div className='products'>
-                        {products.map((product, index) => (
+                        {productResults.map((product, index) => (
                             <Product product={product} key={index} />
                         ))}
                     </div>
                 </div>
                 <div className='right'>
-                    <p>div3</p>
+                    <div className='image-container'>
+                        <CloseIcon className='close' />
+                        <img className='image' src="https://www.ubuy.ke/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvODFlNG5IWERCaUwuX0FDX1NMMTUwMF8uanBn.jpg" alt="" />
+
+                        <div className='thumbnails'>
+                            {thumbnails.map((thumbnail, index) => (
+                                <img key={index} className='thumbnail' height={20} width={30} src={thumbnail.image} alt="thumbnails" />
+
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='product-info'>
+                        <h3>Monstera Deliciosa <br /> Variegata(Large)</h3>
+                        {readMore ? <p className='about'>A species of flowering plant native to southern Mexico and Panama, Monstera deliciosa is a hardy and easy to care for plant known by many names, but most commonly the “Swiss cheese plant” due the unique development of ridges and holes on its more mature leaves, known as fenestrations.he “deliciosa” part of the plant’s name comes from the pineapple-like fruit it bears in its natural habitat!</p>: <p className='about'>A species of flowering plant native to southern Mexico and Panama, Monstera deliciosa is a hardy and easy to care for plant known by many names, but most commonly the “Swiss cheese plant” due the unique development of ridges and holes on its more mature leaves, known as fenestrations...<span onClick={()=>setReadMore(true)} style={{color:"#47a259", cursor:"pointer"}}>Read more</span></p>}
+                    </div>
+
+                    <div className='details-container'>
+                        <div className='details'>
+                            <p>Details</p>
+                        </div>
+                        <div className='reviews'>
+                            <p>Reviews(32)</p>
+                        </div>
+                    </div>
+
+                    <div className='details-info'>
+                        <div className='height'>
+                            <StraightenIcon/>
+                            <p>120 cm</p>
+                        </div>
+                        <div className='conserve'>
+                            <PetsIcon/>
+                            <p>Animal Save</p>
+                        </div>
+                    </div>
+
+                    <div className='product-footer'>
+                        <FavoriteIcon className='fav'/>
+                        <button>
+                            <p>$345 -</p>
+                            <p>Add to Cart</p>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

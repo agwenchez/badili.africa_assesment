@@ -14,7 +14,7 @@ const Header = () => {
         </div>
 
         <div className='nav-menu'>
-            <p>Shop</p>
+            <p style={{borderBottom:'2px solid green', color:'black'}}>Shop</p>
             {/* <div className='underline'>123</div> */}
             <p>Plant Care</p>
             <p>Workshops</p>

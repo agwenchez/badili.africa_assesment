@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 import './product-styles.css'
 
 const Product = ({product}) => {
-  console.log('Prod', product)
+  // console.log('Prod', product)
   return (
     <div className='product'>
       {product.favorite ? <FavoriteIcon className='favorited' /> : <FavoriteBorderIcon className='favorite' />}

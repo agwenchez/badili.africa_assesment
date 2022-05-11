@@ -11,6 +11,7 @@
     flex-direction: row;
     gap:80px;
     cursor: pointer;
+    color:gray
 }
 
 .underline{
@@ -22,6 +23,7 @@
 
 .header-title{
     font-weight: bold;
+    font-size: 20px;
     margin-left: 40px;
 }
 
@@ -42,6 +44,7 @@
 
 .cart{
     position: relative;
+    cursor: pointer;
 }
 
 .cart p{
