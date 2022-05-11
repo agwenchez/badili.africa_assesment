@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../header/Header'
+import Header from '../Header/Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchIcon from '@mui/icons-material/Search';
