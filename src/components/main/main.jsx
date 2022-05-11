@@ -2,14 +2,18 @@ import React from 'react'
 import Header from '../header/Header'
 import './main-styles.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import Rating from '@mui/material/Rating';
+import { products } from '../../mock_data/products';
+
+import Product from '../Product/'
 
 
 const Main = () => {
+
+    const [search, setSearch] = React.useState('')
 
     return (
         <div>
@@ -25,7 +29,7 @@ const Main = () => {
                         <p>Gardening</p>
                     </div>
                     <div className='filter-item'>
-                        <input type='checkbox' />
+                        <CheckBoxIcon className='checkbox' />
                         <p>Plants</p>
                     </div>
                     <div className='filter-item'>
@@ -66,12 +70,8 @@ const Main = () => {
                         <h3>Rating</h3>
 
                         <div className='stars'>
-                            <CheckBoxIcon style={{color:'#47a259', marginRight:'5px'}} />
-                            <StarIcon style={{color:"gold"}}/>
-                            <StarIcon style={{color:"gold"}}/>
-                            <StarIcon style={{color:"gold"}}/>
-                            <StarIcon style={{color:"gold"}}/>
-                            <StarBorderIcon style={{color:"gold"}}/>
+                            <CheckBoxIcon className='checkbox' />
+                            <Rating name="read-only" value={4} readOnly />
                             <p>above</p>
                         </div>
                     </div>
@@ -85,13 +85,13 @@ const Main = () => {
                 </div>
                 <div className='center'>
                     <div className='search'>
-                        <SearchIcon/>
-                        <p>Monstera</p>
+                        <SearchIcon className='search-icon'/>
+                        <input type="text"  value={search} onChange={e => setSearch(e.target.value)}/>
                         <CloseIcon className='close-icon'/>
                     </div>
 
                     <div className='search-results'>
-                        <p>Search results for <span>"Monstera"</span></p>
+                        <p>Search results for <span>"{search}"</span></p>
                     </div>
                
                     <div className='sort'>
@@ -109,6 +109,12 @@ const Main = () => {
                             <p>Price</p>
                             <ExpandMoreIcon />
                         </div>
+                    </div>
+
+                    <div className='products'>
+                        {products.map((product,index) => (
+                            <Product/>
+                        ))}
                     </div>
                 </div>
                 <div className='right'>
